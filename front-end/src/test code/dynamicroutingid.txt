@@ -1,0 +1,124 @@
+ "use client"
+// import React, { useEffect, useState } from 'react'
+// import styles from './page.module.scss'
+// import Image from 'next/image'
+
+// // type dyanmaicId ={
+// //   id: number;
+// // }
+
+
+// type Post = {
+//   userId: number,
+//   id: number,
+//   title: string,
+//   body: string,
+//   desc: string,
+//   userName: string,
+//   userPic:any,
+//   mainPic:any
+// };
+
+
+// // const getData = async (id : number | string)=>{
+
+// //   const response = await fetch(`http://localhost:8001/${id}`);
+
+// //   if (!response.ok){
+// //     throw new Error('Could not find post')
+// //   }
+// //   else{
+// //     return response.json()
+// //   }
+// // }
+
+// // const postData =(id : number | string) =>{
+// //   const [post,setPost]= useState<Post | null>(null);
+
+// //   useEffect(() =>{
+// //     const fetchData = async()=>{
+// //       const data = await getData(id);
+// //       setPost(data);
+// //     };
+// //     fetchData();
+// //   },[id]);
+// //   return post;
+// // }
+
+// const BlogPost = (props: any) => {
+
+//   console.log('props', props);
+//   const {category, id } = props.params
+  
+  
+//   console.log('props', props);
+//   console.log('category', category);
+
+//   const getData = async (id : number | string)=>{
+
+//     const response = await fetch(`http://localhost:8100/${category}/${id}`);
+  
+//     if (!response.ok){
+//       throw new Error('Could not find post')
+//     }
+//     else{
+//       return response.json()
+//     }
+//   }
+  
+//   const postData =(id : number | string) =>{
+//     const [post,setPost]= useState<Post | null>(null);
+  
+//     useEffect(() =>{
+//       const fetchData = async()=>{
+//         const data = await getData(id);
+//         setPost(data);
+//       };
+//       fetchData();
+//     },[id]);
+//     return post;
+//   }
+  
+//   const post  = postData(id);
+
+
+//   return (
+//     <div className={styles.container}>
+//       <div className={styles.top}>
+//         <div className={styles.info}>
+//           <h1 className={styles.title}>
+//             {post?.title}
+//           </h1>
+//           <p className={styles.desc}>
+//             {post?.desc}
+//           </p>
+//           <div className={styles.author}>
+//             <Image
+//               src={post?.userPic}
+//               alt=''
+//               width={40}
+//               height={40}
+//               className={styles.avatar}
+//             />
+//             <span className={styles.username}>{post?.userName}</span>
+//           </div>
+//         </div>
+//         <div className={styles.imageContainer}>
+//           <Image
+//             src={post?.mainPic}
+//             alt=""
+//             fill={true}
+//             className={styles.image}
+//           />
+//         </div>
+//       </div>
+//       <div className={styles.content}>
+//         <p className={styles.text}>
+//         {post?.body}
+//         </p>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default BlogPost

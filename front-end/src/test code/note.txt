@@ -1,0 +1,52 @@
+import Image from 'next/image'
+import styles from './page.module.css'
+
+
+export default function Home() {
+  return (
+    <div className={styles.container}>
+      <div className={styles.item}>
+        <h1 className={styles.title}>
+          Read daily news for good knowledge
+        </h1>
+        <p className={styles.desc}>
+          Newspapers provide information and general knowledge. Newspapers provide news about a everythings.
+        </p>
+        <button className={styles.button}></button>
+      </div>
+      <div className={styles.img}>
+        <Image src='/hero.png' alt='' width='500' height='100' layout='responsive'/>
+      </div>
+    </div>
+  )
+}
+
+-------
+
+.container{
+  display: flex;
+  width: 100%;
+  /* align-items: center; */
+  /* gap: 100px; */
+}
+
+.item{
+  /* flex: 1; */
+  display: flex;
+  flex-direction: column;
+  /* gap: 50px; */
+  max-width: 50%;
+  overflow: hidden;
+  width: 50%;
+}
+
+.img{
+  width: 50%;
+  /* height: 100%; */
+  /* object-fit: cover; */
+}
+
+.title{
+  font-size: 65px;
+  color: linear-gradient(to bottom,#194c33,#bbb);
+}
