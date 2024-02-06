@@ -24,16 +24,16 @@ const Contact = () => {
   const submit = (e: React.FormEvent) => {
     console.log('Form submit ............');
     e.preventDefault();
-    axios.get('http://localhost:2024/message').then((response) => {
+    axios.get('http://localhost:8001/message').then((response) => {
       length = response.data.length+1;
       // setDetails({ ...details, id: response.data.length + 1 }); 
       // console.log('Success', response.data.length )
       return response;
      
     }).then((response) => {
-      console.log('Post method');
+      // console.log('Post method');
       axios
-      .post('http://localhost:2024/message', { ...details, id: length })
+      .post('http://localhost:8001/message', { ...details, id: length })
       .then((res) => console.log('res', res))
       .catch((err) => console.log('err', err));
     });

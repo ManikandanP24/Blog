@@ -21,15 +21,26 @@ const Dashboard = () => {
   const submit = (e: React.FormEvent) => {
     console.log('Form submit ............');
     e.preventDefault();
-    axios.get('http://localhost:8100/data').then((response) => {
+    axios.get('http://localhost:8001/blog').then((response) => {
       length = response.data.length+1;
       return response;
      
     }).then((response) => {
       console.log('Post method');
       axios
-      .post('http://localhost:8100/data', { ...details, id: length })
-      .then((res) => console.log('res', res))
+      .post('http://localhost:8001/blog', { ...details, id: length })
+      .then((res) => {
+        console.log('res', res);
+        setDetails({
+          id: {},
+          title: '',
+          desc: '',
+          body: '',
+          mainPic: '',
+          userName: '',
+          userPic: '',
+        });
+      })
       .catch((err) => console.log('err', err));
     });
   };

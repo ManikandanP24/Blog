@@ -6,8 +6,6 @@ import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/footer/footer'
 import { ThemeProvider } from '../components/context/ThemeContext'
 
-
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -31,8 +29,7 @@ export default function RootLayout({
           <Footer/>
         </div>
       
-      </body>
-       
+      </body>       
     </html>
   )
 }

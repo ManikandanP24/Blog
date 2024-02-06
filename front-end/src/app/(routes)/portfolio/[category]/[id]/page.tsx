@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from './page.module.scss';
 import Image from 'next/image';
+import axios from 'axios';
+import Link from 'next/link';
 
 type Post = {
   userId: number;
@@ -25,29 +27,32 @@ interface BlogPostProps {
 const BlogPost: React.FC<BlogPostProps> = (props) => {
   const { category, id } = props.params;
   const [posts, setPosts] = useState<Post[]>([]);
-  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+  const [selectedPost, setSelectedPost] = useState<any | null>(null);
 
-  const getData = async (category: string) => {
-    try {
-      const response = await fetch(`http://localhost:8100/${category}`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
+  console.log('id',id)
+  console.log('Fetching data :', props.params.category)
+
+  useEffect (()=>{
+    const fetch = async ()=>{
+      try{
+        const res = await axios.get(`http://localhost:8001/${props.params.category}`)
+        setSelectedPost (res.data)
+        console.log('.......',res.data)
       }
-      const data = await response.json();
-      setPosts(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
+      catch(err){
+        console.log(err)
     }
-  };
+  }
+  fetch()
+  // console.log('...............',fetch())
+  },[])
 
-  useEffect(() => {
-    getData(category);
-  }, [category]);
+  // console.log('selectedPost',selectedPost&& selectedPost[parseInt(id)-1])
 
-  useEffect(() => {
-    const selected = posts.find((post) => post.id === Number(id));
-    setSelectedPost(selected || null);
-  }, [id, posts]);
+  
+  const blogId = selectedPost&& selectedPost.find((obj: Post ) => obj.id === parseInt(id))
+  console.log(blogId)
+
 
   if (!selectedPost) {
     return <div>Loading...</div>;
@@ -57,20 +62,21 @@ const BlogPost: React.FC<BlogPostProps> = (props) => {
     <div className={styles.container}>
       <div className={styles.top}>
         <div className={styles.info}>
-          <h1 className={styles.title}>{selectedPost.title}</h1>
-          <p className={styles.desc}>{selectedPost.desc}</p>
+          <h1 className={styles.title}>{blogId.title}</h1>
+          <p className={styles.desc}>{blogId.desc}</p>
           <div className={styles.author}>
-            <Image src={selectedPost.userPic} alt="" width={40} height={40} className={styles.avatar} />
-            <span className={styles.username}>{selectedPost.userName}</span>
+            <Image src={blogId.userPic} alt="" width={40} height={40} className={styles.avatar} />
+            <span className={styles.username}>{blogId.userName}</span>
           </div>
         </div>
         <div className={styles.imageContainer}>
-          <Image src={selectedPost.mainPic} alt="" fill={true} className={styles.image} />
+          <Image src={blogId.mainPic} alt="" fill={true} className={styles.image} />
         </div>
       </div>
       <div className={styles.content}>
-        <p className={styles.text}>{selectedPost.body}</p>
+        <p className={styles.text}>{blogId.body}</p>
       </div>
+      <Link href={'./'}><button className={styles.back} >back</button></Link>
     </div>
   );
 };

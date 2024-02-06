@@ -30,12 +30,13 @@ const Category: React.FC<CategoryProps> = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:8100/${props.params.category}`);
+        const response = await fetch(`http://localhost:8001/${props.params.category}`);
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         } else {
           const data = await response.json();
           setPosts(data);
+          console.log("................",data)
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -43,9 +44,9 @@ const Category: React.FC<CategoryProps> = (props) => {
     };
 
     fetchData();
-  }, [props.params.category]);
+  }, []);
 
-  // console.log('Fetching data', props.params.category)
+  // console.log('Fetching data :', props.params.category)
 
   return (
     <div className={styles.container}>

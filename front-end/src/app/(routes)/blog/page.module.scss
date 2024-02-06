@@ -9,6 +9,13 @@
   object-fit: cover;
 }
 
+// .deleteIcon{
+//   font-size: 30px;
+//   color: rgb(241, 82, 82);
+//   display: flex;
+//   float: right;
+//   margin-bottom: 10px;
+// }
 
 .title{
   margin-bottom: 10px;
@@ -22,3 +29,21 @@
  width: 400px;
  height: 200px;
 }
+
+.delete{
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #53c28b;
+  border: none;
+  border-radius: 5px;
+  width: max-content;
+  color: white;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
