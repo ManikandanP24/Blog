@@ -18,11 +18,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // const { mode } = useContext(ThemeContext);
+ 
   return (
     <html lang="en">
     <body className={inter.className}>
-     
+      
         <div className='container'>
           <Navbar/>
           {children}

@@ -33,6 +33,15 @@
 .delete{
   padding: 10px 20px;
   cursor: pointer;
+  background-color: rgb(255, 31, 31);
+  border: none;
+  border-radius: 5px;
+  width: max-content;
+  color: white;
+}
+.seeMore{
+  padding: 10px 20px;
+  cursor: pointer;
   background-color: #53c28b;
   border: none;
   border-radius: 5px;
@@ -43,6 +52,13 @@
 .content{
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+
+.buttonGap{
+  display: flex;
+  flex-direction: row;
   gap: 20px;
 }
 
