@@ -8,7 +8,7 @@ import { ThemeContext } from '../components/context/ThemeContext'
 
 
 export default function Home() {
-  const { mode } = useContext(ThemeContext);
+  // const { mode } = useContext(ThemeContext);
   // console.log('mode page :', mode);
   return (
     <div className={styles.container}>

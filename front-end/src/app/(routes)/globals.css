@@ -12,13 +12,13 @@ body {
   color: #bbb;
 }
 
-/* globals.css */
+/* theme to change when toogle */
 .theme {
-  transition: background-color 0.5s, color 0.5s;
+  transition: background-color 1s, color 1s;
 }
 
 .light {
-  background-color: white;
+  background-color: rgb(235, 230, 230);
   color: #111;
 }
 

@@ -1,7 +1,7 @@
 .container{
     width: 42px;
     height: 24px;
-    border: 1.5px solid #53c28b70;
+    border: 1.5px solid #53bd88;
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -23,10 +23,10 @@
     position: absolute;
 }
 
-/* DarkMode.module.scss */
+/* DarkMode */
 
 .container {
-    // Common styles for both dark and light modes
+
     cursor: pointer;
   }
   

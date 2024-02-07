@@ -28,13 +28,15 @@
  
   .pagination-active {
     color: #53c28b;
-    background-color: aliceblue;
+    background-color: white;
     border-radius: 50%;    
+    border-color: #53c28b;
+    border: 1px solid;
   }
   
   .pagination-active {
     color: #53c28b;
-    border-color: #007bff;
+    border-color: #53c28b;
     padding: 5px ;
   }
   
